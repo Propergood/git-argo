@@ -2,9 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: guestbook-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - playground.argo.mistressofmalt.com
+    secretName: guestbook-dev-tls
   rules:
-  - host: guestbook.local
+  - host: playground.argo.mistressofmalt.com
     http:
       paths:
       - path: /
