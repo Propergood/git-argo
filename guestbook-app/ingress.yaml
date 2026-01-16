@@ -8,10 +8,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - playground.argo.mistressofmalt.com
+    - playground.argo.internal.mistressofmalt.com
     secretName: guestbook-dev-tls
   rules:
-  - host: playground.argo.mistressofmalt.com
+  - host: playground.argo.internal.mistressofmalt.com
     http:
       paths:
       - path: /
